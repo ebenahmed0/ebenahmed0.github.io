@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Fedora migration guide</title>
+		<link rel="stylesheet" href="/styles.css" type="text/css">
+		<meta charset="utf-8"/>
+		<meta name="description" content="Step by step guide: Switching from Windows and Chrome/Edge (proprietary) to Fedora and Firefox (open source)">
+		<style>
+			img{
+				max-width:100%;
+				height:auto;
+			}
+		</style>
+	</head>
+	<body>
+		<p><a href=".">Home</a></p>
+		<h1>Step by step guide: Switching from Windows and Chrome/Edge (proprietary) to Fedora and Firefox (open source)</h1>
+		<p>This is a step-by-step guide meant for people who know little about computers, and mostly covers relatively straight forward processes that are already designed to be done by non-technical users. If you're already comfortable with computers, then you should consider attempting this without a guide.</p>
+		<ol>
+			<li>
+				<a href="#Stage1">Exporting important data</a>
+			</li>
+			<li>
+				<a href="#Stage2">Installing Fedora</a>
+			</li>
+			<li>
+				<a href="#Stage3">Importing important data</a>
+			</li>
+		</ol>
+		<h1>Why?</h1>
+		<p>The principal reason for switching to free and open source software is that your computer belongs to you, and not the people who write your software. A good example of this is advertisements: Windows includes software specifically written with the purpose of serving you ads. If Windows went open source, some programmers would surely "fork" it, taking the source code and omitting the code responsible for anti-features such as advertisements, and releasing this objectively better version as a community edition that's closer to what users actually want than Microsoft's official Windows release. This is the promise of open source software; it exists for the user and not the proprietor.</p>
+		<p>Linux (specifically the gnome desktop environment) has been an easier and more modern desktop experience than Windows for a while now, but it hasn't been suitable for most people for the longest time because the software that most people like to install was unavailable or difficult to install. This has changed mostly thanks to <a href="https://flathub.org">Flathub</a>, who provide universal 'flatpak' linux apps. These days you can find pretty much all the software most people use on their <a href="https://flathub.org/apps/collection/popular">popular apps page</a>, with it only really missing the Microsoft office and Adobe creative suites, though Office is pretty much the same experience if you use the web version anyway and Photoshop can be installed relatively easily using the Windows compatibility tool <a href="https://lutris.net/games/adobe-photoshop-cs6/">Lutris</a>. Both Lutris and Flathub can be installed easily on Fedora, with Flathub having a <a href="https://flatpak.org/setup/Fedora">Fedora-specific installation page</a>, and Lutris having a Fedora section on their <a href="https://lutris.net/downloads">downloads page</a>.
+		<h3>People who shouldn't do this:</h3>
+		<ul>
+			<li>
+				<h3>Gamers</h3>
+				<p>Linux availability isn't yet a priority for the video game industry. In spite of this, linux definitely provides some great gaming experiences thanks to windows compatibility tools, which are pretty much as simple as using steam like normal with 'Steam Play' enabled. Despite this, linux definitely doesn't provide the full PC gaming experience, especially for social gamers who just want to play games on release, since linux workarounds for their anticheats and newer graphics features may not initially work, or may never work if the anticheat is outright blocking linux compatibility.</p>
+			</li>
+			<li>
+				<h3>Users of professional and industry specific software</h3>
+				<p>Pro software is developed with businesses in mind, and businesses will likely be the last to move away from Windows. This is compounded by the fact that a lot of specialist software development is stagnant, as schools have to teach the software that is currently used in the industry whilst the industry has to use the software that their workers were trained to use, so there's no room for new software projects to challenge already established pro software, resulting in little return on investment for developing it.</p>
+			</li>
+		</ul>
+		<hr>
+		<h1 id="Stage1">Stage 1: Exporting user data</h1>
+		<p>This stage requires somewhere to store data. This could be a flash drive or some cloud storage you have access to.</p>
+		<ul>
+			<li>
+				<h3>Installing Firefox</h3>
+				<img src="/media/installing-firefox-windows.gif">
+				<p>Download Firefox from their <a href="https://www.mozilla.org/en-US/firefox/new/">download page</a> and run through the installer like usual.</p>
+			</li>
+			<li>
+				<h3>Accessing the Firefox import wizard</h3>
+				<img src="/media/accessing-the-firefox-import-wizard.gif">
+				<p>Open Firefox and access the 'Library' with the key combo CTRL-SHIFT-O. Open the 'Import and Backup' menu and select 'Import Data from Another Browser'.</p>
+			</li>
+			<li>
+				<h3>Running through the Firefox import wizard</h3>
+				<img src="/media/running-through-the-firefox-import-wizard.gif">
+				<p>From the 'Import Settings and Data' selection, choose the browser you're migrating from. In the 'Items to Import' screen keep all the items selected.</p>
+			</li>
+			<li>
+				<h3>Backing up Firefox</h3>
+				<img src="/media/backing-up-firefox.gif">
+				<p>From Firefox navigate to 'about:profiles' with the address bar. Open the directory for the 'Root Directory' of the current profile (this is the profile that does not have a 'Launch profile in new browser' button). Close Firefox and copy the contents of this folder to a new 'firefox-profile' folder.</p>
+			</li>
+			<li>
+				<h3>Saving your data</h3>
+				<p>Move the new 'firefox-profile' folder to the storage set aside for this stage. Now would be a good time to also save any other local files (Pictures folder, Documents folder) that you want to bring over to your new operating system.</p>
+			</li>
+		</ul>
+		<h1 id="Stage2">Stage 2: Replacing Windows with Fedora</h1>
+		<p>This stage requires a flash drive with a capacity of at least 2GB (separate from anything used in stage 1).</p>
+		<ul>
+			<li>
+				<h3>Install Fedora Media Writer</h3>
+				<img src="/media/installing-fedora-media-writer-windows.gif">
+				<p>Firstly, we need to install Fedora's 'Media Writer' tool. Download the installer by clicking on the windows logo next to 'Fedora Media Writer' from their download page at <a href="https://getfedora.org/en/workstation/download/"> getfedora.org/en/workstation/download</a>. Open the installer and run through it like usual.</p>
+			</li>
+			<li>
+				<h3>Make a bootable Fedora installer</h3>
+				<img src="/media/make-a-bootable-fedora-installer.gif">
+				<p>Open Fedora Media Writer and select 'Download automatically'. Choose the Official Fedora Workstation Edition on the 'Fedora Release' selection. For write options, leave the latest version selected, along with 'Intel/AMD 64bit', and select the flash drive set aside for this stage. Proceed to download and write.</p>
+			</li>
+			<li>
+				<h3>Boot into the installer</h3>
+				<img src="/media/bios-splash.webp">
+				<img src="/media/boot-entry.webp">
+				<p>Once Fedora Media Writer has finished writing the installer to the flash drive, power off your PC. Next you'll need to use your flash drive as a temporary boot device. This is usually done by pressing a key displayed on the bios splash screen to either select a boot device, or enter the bios, where there will be an option to select a temporary boot device. Select the flash drive you flashed the Fedora installer to.</p>
+			<li>
+				<h3>Run through the Fedora installer</h3>
+				<img src="/media/fedora-installation.gif">
+				<p>Let the installer boot all the way into the desktop, and select 'Install to Hard Drive' from the welcome window. The installer's first screen lets you change its language.</p>
+				<p>Next you need to select which storage device Fedora will be installed to, open the 'Installation destination' menu and make sure the drive you're ready to overwrite is selected. Enabling the 'Encrypt my data' toggle is a useful security precaution, especially for laptops. The installer will prompt you to delete the old windows installation on the 'Reclaim space' menu, just select 'Delete all' and 'Reclaim space'.</p>
+				<p>If the system and localization are correct, begin the installation.</p>
+			</li>
+			<li>
+				<h3>Fedora first-time setup</h3>
+				<img src="/media/fedora-initial-setup.gif">
+				<p>After the installer has finished, reboot your computer. A setup window will appear.</p>
+				<p>From the privacy screen, you can disable location services (this allows programs to pinpoint your location instead of just guessing based on your ip) and problem reporting (disabling this won't have any drawbacks aside from slowing down development).</p>
+				<p>On the next screen, make sure to enable third-party repositories. This provides more driver software so the operating system can communicate with more external devices.</p>
+				<p>Feel free to skip the online accounts screen, you can connect your online accounts later from the settings menu if required. Enter the name, and then the password for your new account. Ignore 'Enterprise Login', this is mainly for businesses.</p>
+			</li>
+		</ul>
+		<h1 id="Stage3">Stage 3: Importing user data</h1>
+		<ul>
+			<li>
+				<h3>Create a new Firefox profile</h3>
+				<img src="/media/new-firefox-profile.gif">
+				<p>Open Firefox and type 'about:profiles' in the URL bar. Create a new profile. Use the defaults and remember the name of the profile you create. Open the directory for the 'Root Directory' of the newly created profile. Close the browser.</p>
+			</li>
+			<li>
+				<h3>Copy the old imported Firefox profile into the new Firefox profile.</h3>
+				<img src="/media/importing-firefox-data.gif">
+				<p>Access the data you saved from stage 1. Copy the contents of the 'firefox-profile' folder you created in stage 1 into the previously opened 'root directory' folder of the newly created Firefox profile. Answer any conflicts with 'replace'.</p>
+			</li>
+		</ul>
+	</body>
+</html>
