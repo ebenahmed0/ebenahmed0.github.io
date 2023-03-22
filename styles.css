@@ -1,7 +1,7 @@
 body{
 	margin:1em auto;
 	background:#fff;
-	background: linear-gradient(45deg, #eff 0%, #efe 100%);
+	background: linear-gradient(0deg, #bff 0%, #bfd 100%);
 	max-width:40em;
 	padding:0 .62em;
 	font:1.2em/1.62em;
